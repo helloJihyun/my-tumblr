@@ -9,45 +9,49 @@
         * {
             background-color: #f4e8cd;
         }
+
+        .section {
+            width: 800px;
+            margin: auto;
+        }
+
         .container {
             text-align: center;
         }
-        .img {
-            width: 350px;
-            height: 350px;
-            margin: 25px auto;
 
-            background-size: cover;
-            background-position: center;
+        .question {
+            width: 800px;
+            text-align: left;
+        }
+
+        .title {
+            margin: 50px 0px;
         }
 
         .button {
             margin: 25px auto;
-            width: 300px;
         }
 
         .button:hover {
-            background-color: #ffd000;
+            background-color: #4edbbf;
         }
     </style>
 </head>
 <body>
 <section class="section">
     <div class="container">
-        <h1 class="title">
-            Q.1
-        </h1>
-        <h2>
-            
-        </h2>
-        <p class="subtitle">
-            나에게 꼭 맞는 텀블러를 찾아보자!
-        </p>
-        <div class="img">
-            <img src="image/coffee.png">    
+        <div class="question">
+            <p class="q-number" style="font-size: xx-large">
+                Q.1
+            </p>
+            <h1 class="title">
+                선호하는 여행지는?
+            </h1>
         </div>
-        <div class="buttons">
-            <button class="button is-warning">텀블러 유형 테스트 시작하기</button>
+        <div class="buttons" id="button">
+            <button class="button is-large is-fullwidth">구름 한 점 없는 해수욕장</button>
+            <button class="button is-large is-fullwidth">눈이 펑펑오는 스키</button>
+            <button class="button is-large is-fullwidth">어디든지 갈 수 있는 캠핑</button>
         </div>
     </div>
 </section>
