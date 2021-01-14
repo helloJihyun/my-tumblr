@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>텀블러 유형 테스트 | 나에게 꼭 맞는 텀블러 유형은?</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <style>
@@ -15,13 +14,13 @@
             width: 800px;
             padding: 70px 0px;
             margin: auto;
+            background-color: ;
         }
 
         .container {
             text-align: center;
             width: 800px;
         }
-
         .q-order {
             width: 80px;
             margin: 0px 0px 0px 720px;
@@ -48,34 +47,14 @@
         .button:hover {
             background-color: #4edbbf;
         }
-
-        @media screen and (max-width: 760px) {
-            /*모바일 크기 조정*/
-        }
     </style>
-    <script>
-        function choose() {
-            $.ajax({
-                type: "GET",
-                url: "/question",
-                data: {},
-                success: function (response) {
-                    if (response['result'] == 'success') {
-                        alert('응답완료');
-                    } else {
-                        alert('리뷰를 받아오지 못했습니다');
-                    }
-                }
-            })
-        }
-    </script>
 </head>
 <body>
 <section class="section">
     <div class="container">
         <div class="question">
             <div>
-                <p class="q-order">1/12</p>
+            <p class="q-order">1/12</p>
             </div>
             <p class="q-number" style="font-size: xx-large">
                 Q.1
@@ -85,8 +64,9 @@
             </h1>
         </div>
         <div class="buttons" id="button">
-            <button class="button is-large is-fullwidth" onclick="choose();">구름 한 점 없는 해수욕장</button>
-            <button class="button is-large is-fullwidth" onclick="choose();">눈이 펑펑오는 스키</button>
+            <button class="button is-large is-fullwidth">구름 한 점 없는 해수욕장</button>
+            <button class="button is-large is-fullwidth">눈이 펑펑오는 스키</button>
+            <button class="button is-large is-fullwidth">어디든지 갈 수 있는 캠핑</button>
         </div>
     </div>
 </section>
