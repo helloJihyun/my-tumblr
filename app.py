@@ -6,10 +6,6 @@ db = client.my_tumblr
 app = Flask(__name__)
 
 
-@app.route('/test')
-def get_test_page():
-    return render_template('question1.html')
-
 @app.route('/')
 def get_main_page():
     return render_template('index.html')
@@ -18,13 +14,20 @@ def get_main_page():
 def get_question_page():
     return render_template('question1.html')
 
-@app.route('/resut')
-def get_result_page():
-    answers = request.args.get('answers')
+@app.route('/result')
 
-    #
+def get_result_page():
+    answers = list(request.args.get('answers'))
+    all_qnas = list(db.qna.find({}, {'_id': False}))
+
+    for qna in all_qnas:
+        i = 0
+        question_score = qna['a'][answers[i]][1]
+        i += 1
+    print(question_score)
 
     return render_template('result.html')
+
 
 
 
