@@ -5,6 +5,7 @@ client = MongoClient('localhost', 27017)
 db = client.my_tumblr
 app = Flask(__name__)
 
+from data_qna import qna_data, result_data
 
 @app.route('/')
 def get_main_page():
@@ -15,20 +16,32 @@ def get_question_page():
     return render_template('question1.html')
 
 @app.route('/result')
-
 def get_result_page():
     answers = list(request.args.get('answers'))
-    all_qna = list(db.qna.find({}, {'_id': False}))
-
-    for qna in all_qna:
-        i = 0
-        answer_score = qna['a'][answers[i]][1]
-        i += 1
-        print(answer_score)
-
-    return render_template('result.html')
+    result_type = calc_result(answers)
+    result = result_data[result_type]
+    return render_template('result.html', result=result)
 
 
+def calc_result(answers):
+    all_qna = qna_data
+    score_dict = dict()
+
+    for i in range(8):
+        score_dict['type'+str(i+1)] = 0
+
+    for i in range(len(answers)):
+        answer = int(answers[i])
+        qna = all_qna[i]
+        score = qna['a'][answer][1]
+
+        for s in score:
+            key = s
+            val = score[s]
+            score_dict[key] += val
+
+    result = max(score_dict, key=score_dict.get)
+    return result
 
 
 @app.route('/qnas', methods=['GET'])
