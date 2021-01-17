@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>텀블러 유형 테스트 | 나에게 꼭 맞는 텀블러 유형은?</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"/>
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <style>
+            * {
+                background-color: #f4e8cd;
+            }
+            .list_title {
+                text-align: center;
+            }
+
+            .brand_name {
+                font-size: 28px;
+                font-weight: bold;
+                padding-top: 5px;
+            }
+
+            .card {
+                width: 250px;
+                height: 280px;
+                margin: auto;
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
+
+            .desc_card {
+                width: 400px;
+                height: 450px;
+                margin: auto;
+                background-color: white;
+                text-align: left;
+                padding: 15px;
+                box-shadow: 0 7px 30px -10px rgba(150, 170, 180, 0.5);
+                border-radius: 5%;
+                opacity: 90%;
+                margin-bottom: 30px;
+            }
+
+            #prod_list {
+                display: none;
+            }
+
+            .result-image {
+                width: 128px;
+                height: 128px;
+                margin: auto;
+                margin-top: 60px;
+                margin-bottom: 60px;
+            }
+
+            .desc {
+                color: black;
+            }
+
+            .buttons {
+                width: 150.39px;
+                margin: auto;
+                margin-top: 8px;
+            }
+
+            .card-content {
+                padding-top: 12px;
+                padding-bottom: 0px;
+                padding-left: 12px;
+            }
+
+            .prod_name {
+                font-size: 20px;
+            }
+
+            .star {
+                text-align: right;
+            }
+        </style>
+        <script>
+            function showProdList() {
+                $("#prod_list").show();
+            }
+        </script>
+    </head>
+    <body>
+        <section class="hero is-primary is-medium">
+            <!-- Hero head: will stick at the top -->
+            <div class="hero-head">
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-brand">
+                            <p class="brand_name">MY 텀블러</p>
+                            <span class="navbar-burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+                        </div>
+                        <div id="navbarMenuHeroA" class="navbar-menu">
+                            <div class="navbar-end">
+                                <a class="navbar-item is-active">
+                                    Home
+                                </a>
+                                <a class="navbar-item">
+                                    텀블러 유형검사
+                                </a>
+                                <a class="navbar-item">
+                                    텀블러 캘린더
+                                </a>
+                                <span class="navbar-item">
+              <a class="button is-primary is-inverted">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>공유하기</span>
+              </a>
+            </span>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Hero content: will be in the middle -->
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <p> 당신의 텀블러 유형은</p>
+                    <h1 class="title">
+                        언제나 '핫'한 핫-뜨거 텀블
+                    </h1>
+                    <div class="result-image">
+                        <figure class="image is-128x128">
+                            <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                        </figure>
+                    </div>
+                    <div class="desc_card">
+                        <p><strong>당신은 게으른 얼리어댑터으로 어쩌고 어쩌고</strong></p>
+                        <p class="desc">
+                            동해물과 백두산이 마르고 닳도록<br>
+                            하느님이 보우하사 우리나라만세<br>
+                            (후렴)무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세<br>
+                            남산위에 저 소나무 철갑을 두른듯<br>
+                            바람서리 불변함은 우리기상 일세<br>
+                            (후렴)무궁화 삼천리 화려강산 대한사람 대한으로 길이보전하세<br>
+                            가을하늘 공활한데 높고 구름없이<br>
+                            밝은달은 우리가슴 일편단심일세<br>
+                            (후렴)무궁화 삼천리 화려강산 대한사람 대한으로 길이보전하세<br>
+                            이 기상과 이 맘으로 충성을 다하여<br>
+                            괴로우나 즐거우나 나라사랑하세<br>
+                            (후렴)무궁화 삼천리 화려강산 대한사람 대한으로 길이보전하세</p>
+                    </div>
+                    <div class="buttons" onclick="showProdList()">
+                        <button class="button is-primary is-light">최저가 구매하기</button>
+                    </div>
+                    <div id="prod_list">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://bulma.io/images/placeholders/1280x960.png"
+                                         alt="Placeholder image">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="prod_info">
+                                    <p class="prod_name">상품명</p>
+                                    <p class="price">가격</p>
+                                    <p class="star">평점</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://bulma.io/images/placeholders/1280x960.png"
+                                         alt="Placeholder image">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="prod_info">
+                                    <p class="prod_name">상품명</p>
+                                    <p class="price">가격</p>
+                                    <p class="star">평점</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="https://bulma.io/images/placeholders/1280x960.png"
+                                         alt="Placeholder image">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="prod_info">
+                                    <p class="prod_name">상품명</p>
+                                    <p class="price">가격</p>
+                                    <p class="star">평점</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            </div>
+
+            <!-- Hero footer: will stick at the bottom -->
+            <div class="hero-foot">
+                <nav class="tabs">
+                    <div class="container">
+                        <ul>
+                            <li class="is-active"><a>Overview</a></li>
+                            <li><a>Modifiers</a></li>
+                            <li><a>Grid</a></li>
+                            <li><a>Elements</a></li>
+                            <li><a>Components</a></li>
+                            <li><a>Layout</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </section>
+
+
+    </body>
