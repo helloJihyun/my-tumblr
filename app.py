@@ -18,13 +18,13 @@ def get_question_page():
 
 def get_result_page():
     answers = list(request.args.get('answers'))
-    all_qnas = list(db.qna.find({}, {'_id': False}))
+    all_qna = list(db.qna.find({}, {'_id': False}))
 
-    for qna in all_qnas:
+    for qna in all_qna:
         i = 0
-        question_score = qna['a'][answers[i]][1]
+        answer_score = qna['a'][answers[i]][1]
         i += 1
-    print(question_score)
+        print(answer_score)
 
     return render_template('result.html')
 
