@@ -106,4 +106,4 @@ result_data['type4'] = ['언제 어디서나 쿨한 당신,','앗!차거 텀블�
 result_data['type5'] = ['오지에 가도 살아남을 당신,','all in one 텀블러']
 result_data['type6'] = ['의자와 물아일체된 당신,','망부석 텀블러']
 result_data['type7'] = ['환경을 두번 생각하는 당신,','친환경 텀블러']
-result_data['type8'] = ['도구를 쓸 줄 아는 당신,','꿀기 텀블러']
+result_data['type8'] = ['도구를 쓸 줄 아는 당신,','꿀기능 텀블러']
