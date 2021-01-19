@@ -18,31 +18,39 @@ options.add_argument('window-size=1920x1080')
 options.add_argument("disable-gpu")
 options.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36")
 
-driver = webdriver.Chrome('chromedriver',options=options)
-##################
-
 # 셀레니움을 실행하는데 필요한 크롬드라이버 파일을 가져옵니다.
-driver = webdriver.Chrome('/usr/local/bin/chromedriver')
+driver = webdriver.Chrome('/Users/jeonghan.joo/Downloads/chromedriver')
+#driver = webdriver.Chrome('/usr/local/bin/chromedriver')
 
 url = 'http://search.danawa.com/dsearch.php?k1=%ED%85%80%EB%B8%94%EB%9F%AC&module=goods&act=dispMain'
 
 driver.get(url)
+time.sleep(3)
 
-time.sleep(2)
+scroll_n_times = 10
 
+for i in range(scroll_n_times):
+    h = 'document.body.scrollHeight/%d'%scroll_n_times
+    driver.execute_script("window.scrollTo(0, %s * %d);"%(h, i+1))
+    time.sleep(0.5)
 
-tum_imgs = driver.find_elements_by_class_name('click_log_product_standard_img_')
-driver.get(tum_imgs[0].get_attribute('src'))
-req = driver.page_source
+soup = BeautifulSoup(driver.page_source, 'html.parser')
+lis = soup.select('li.prod_item')
 
-soup = BeautifulSoup(req, 'html.parser')
-img_urls = soup.select("body > img")
-print(img_urls)
+for li in lis:
+    try:
+        div_tag = li.select_one('div.thumb_image')
+        a_tag = div_tag.select_one('a')
+        img_tag = a_tag.select_one('img')
+        href = a_tag['href']
+        image_url = img_tag['src']
 
+        if 'noImg_160.gif' in image_url:
+            continue
 
+        print(href, image_url)
+    except:
+        pass
 
-# tumblrs = soup.select('#productListArea > div.main_prodlist.main_prodlist_list > ul > li')
-# for tumblr in tumblrs:
-#     a_tag = tumblr.select_one('div > div > a > img')['alt']
-#     if a_tag is not None:
-#         print(a_tag)
+driver.quit()
+
