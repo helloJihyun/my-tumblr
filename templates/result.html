@@ -41,14 +41,16 @@
             margin: auto;
             margin-bottom: 25px;
         }
+
         .share-list {
-            width:500px;
+            width: 500px;
             margin: auto;
         }
+
         .share-list-btn {
             border: 0;
             background-color: white;
-            width : 50px;
+            width: 50px;
             height: 50px;
         }
 
@@ -72,6 +74,44 @@
     <script>
         function showProdList() {
             $("#prod_list").show();
+            prodInfo();
+        }
+
+        function prodInfo() {
+            // 1. 리뷰 목록을 서버에 요청하기
+            // 2. 요청 성공 여부 확인하기
+            // 3. 요청 성공했을 때 리뷰를 올바르게 화면에 나타내기
+            $.ajax({
+                type: "GET",
+                url: "/prod_info",
+                data: {},
+                success: function (response) {
+                    if (response["result"] == "success") {
+                        let prodInfo = response["prod_info"];
+                        for (let i = 0; i < prodInfo.length; i++) {
+                            makeCard(prodInfo[i]["url"], prodInfo[i]["name"], prodInfo[i]["image"], prodInfo[i]["price"]);
+                        }
+                    } else {
+                        alert("상품 정보를 받아오지 못했습니다🥲");
+                    }
+                }
+            })
+        }
+
+        function makeCard(url, name, image, price) {
+            let tempHtml = `<div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="${image}"
+                                         alt="thumb_image">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="prod_info">
+                                    <p class="title is-5">${name}</p>
+                                    <p class="subtitle is-6">${price}</p>
+                                </div>
+                            </div>`;
+            $("#prod_list_card").append(tempHtml);
         }
     </script>
 </head>
@@ -151,10 +191,10 @@
     <div id="prod_list">
         <div class="columns is mobile">
             <div class="column is-4">
-                <div class="card">
+                <div class="card" id="prod_list_card">
                     <div class="card-image">
                         <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/1280x960.png"
+                            <img src="http://img.danawa.com/prod_img/500000/071/006/img/8006071_1.jpg?shrink=160:160&_v=20200724160847"
                                  alt="Placeholder image">
                         </figure>
                     </div>
@@ -162,7 +202,6 @@
                         <div class="prod_info">
                             <p class="title is-4">상품명</p>
                             <p class="subtitle is-6">가격</p>
-                            <p class="star">평점</p>
                         </div>
                     </div>
                 </div>
@@ -180,7 +219,6 @@
                         <div class="prod_info">
                             <p class="title is-4">상품명</p>
                             <p class="subtitle is-6">가격</p>
-                            <p class="star">평점</p>
                         </div>
                     </div>
                 </div>

@@ -49,6 +49,10 @@ def show_qna():
     qnas = list(db.qna.find({}, {'_id': False}))
     return jsonify({'result': 'success', 'qna': qnas})
 
+@app.route('/prod_info', methods=['GET'])
+def prod_info():
+    prod_info = list(db.prod_info.find({}, {'_id': 0}))
+    return jsonify({'result': 'success', 'prod_info': prod_info})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', debug=True, port=5000)
