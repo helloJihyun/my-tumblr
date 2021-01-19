@@ -78,40 +78,47 @@
         }
 
         function prodInfo() {
-            // 1. 리뷰 목록을 서버에 요청하기
-            // 2. 요청 성공 여부 확인하기
-            // 3. 요청 성공했을 때 리뷰를 올바르게 화면에 나타내기
+            $('#prod_list_card').empty()
             $.ajax({
                 type: "GET",
                 url: "/prod_info",
                 data: {},
                 success: function (response) {
                     if (response["result"] == "success") {
-                        let prodInfo = response["prod_info"];
-                        for (let i = 0; i < prodInfo.length; i++) {
-                            makeCard(prodInfo[i]["url"], prodInfo[i]["name"], prodInfo[i]["image"], prodInfo[i]["price"]);
+                        let prodInfos = response["prod_info"];
+
+                        for (let i = 0; i < prodInfos.length; i++) {
+                            let prod_info = prodInfos[i]
+
+                            let url = prod_info['url']
+                            let name = prod_info['name']
+                            let img = prod_info['img']
+                            let price = prod_info['price']
+
+                            let tempHtml = `<div class="column is-4">
+                                                <div class="card">
+                                                    <div class="card-image">
+                                                        <figure class="image is-4by3">
+                                                            <a href="${url}">
+                                                                <img src="${img}" alt="Placeholder image">
+                                                             </a>
+                                                        </figure>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <div class="prod_info">
+                                                            <a href="${url}">
+                                                                <p class="title is-6" href="${url}">${name}</p>
+                                                            </a>
+                                                            <p class="subtitle is-7">${price}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>`;
+                            $("#prod_list_card").append(tempHtml);
                         }
-                    } else {
-                        alert("상품 정보를 받아오지 못했습니다🥲");
                     }
                 }
-            })
-        }
-
-        function makeCard(url, name, image, price) {
-            let tempHtml = `<div class="card-image">
-                                <figure class="image is-4by3">
-                                    <img src="${image}"
-                                         alt="thumb_image">
-                                </figure>
-                            </div>
-                            <div class="card-content">
-                                <div class="prod_info">
-                                    <p class="title is-5">${name}</p>
-                                    <p class="subtitle is-6">${price}</p>
-                                </div>
-                            </div>`;
-            $("#prod_list_card").append(tempHtml);
+            });
         }
     </script>
 </head>
@@ -189,9 +196,9 @@
         </div>
     </div>
     <div id="prod_list">
-        <div class="columns is mobile">
+        <div class="columns is-multiline is mobile" id="prod_list_card">
             <div class="column is-4">
-                <div class="card" id="prod_list_card">
+                <div class="card">
                     <div class="card-image">
                         <figure class="image is-4by3">
                             <img src="http://img.danawa.com/prod_img/500000/071/006/img/8006071_1.jpg?shrink=160:160&_v=20200724160847"

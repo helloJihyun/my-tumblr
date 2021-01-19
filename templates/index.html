@@ -6,9 +6,7 @@
     <title>텀블러 유형 테스트 | 나에게 꼭 맞는 텀블러 유형은?</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <style>
-        * {
-            background-color: #f4e8cd;
-        }
+
 
         .section {
             width: 100vw;
@@ -18,26 +16,45 @@
         }
 
         .container {
-            text-align: center;
+            text-align: left;
             width: 500px;
         }
 
-        .img {
-            width: 350px;
-            height: 350px;
-            margin: 25px auto;
-
+        .main_char {
+            background-image: url("../static/image/mian_char.png");
             background-size: cover;
-            background-position: center;
+            background-repeat: no-repeat;
+            background-position: -250px -30px;
+            position: relative;
+            width: 700px;
+            height: 700px;
         }
 
+        .start {
+            position: absolute;
+            top: 450px;
+        }
+
+
         .button {
-            margin: 25px auto;
-            width: 300px;
+            margin-left: 300px;
+            border-radius: 75px;
+            width: 150px;
+            height: 150px;
+            border: 0px;
+            background-color: #FEBD67;
+        }
+
+        h3 {
+            color: #24272c;
+        }
+
+        h3:hover {
+            color: #72a065;
         }
 
         .button:hover {
-            background-color: #ffd000;
+            background-color: #eaf0ec;
         }
 
         @media screen and (max-width: 760px) {
@@ -66,18 +83,19 @@
 <body>
 <section class="section">
     <div class="container">
-        <h1 class="title">
-            나의 텀블러 유형은?
+        <h1 class="title is-1">
+            My <strong style="color: #FEBD67">Tumbler</strong> Test
         </h1>
         <p class="subtitle">
-            나에게 꼭 맞는 텀블러를 찾아보자!
+            나와 닮은 텀블러 찾기
         </p>
-        <div class="img">
-            <img src="/static/image/coffee.png">
+        <div class="main_char">
+<!--            <img src="/static/image/mian_char.png">-->
         </div>
-        <div class="buttons">
-            <button class="button is-large is-fullwidth" onclick="location.href = '/question'">텀블러 유형 테스트 시작하기</button>
+        <div class="start">
+            <button class="button" onclick="location.href = '/question'"><h3 class="title is-3">START</h3></button>
         </div>
+
     </div>
 </section>
 </body>
