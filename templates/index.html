@@ -9,9 +9,19 @@
         * {
             background-color: #f4e8cd;
         }
+
+        .section {
+            width: 100vw;
+            height: 100vh;
+            padding: 70px 0px;
+            margin: auto;
+        }
+
         .container {
             text-align: center;
+            width: 500px;
         }
+
         .img {
             width: 350px;
             height: 350px;
@@ -29,6 +39,28 @@
         .button:hover {
             background-color: #ffd000;
         }
+
+        @media screen and (max-width: 760px) {
+            .section {
+                height: 100vh;
+                padding: 70px 0px;
+                margin: auto;
+            }
+
+            .container {
+                flex-grow: 1;
+                margin: 50px auto;
+                position: relative;
+                width: 500px;
+            }
+
+            .img {
+                width: 300px;
+                margin: 40px auto 30px;
+                background-size: cover;
+                background-position: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -44,7 +76,7 @@
             <img src="/static/image/coffee.png">
         </div>
         <div class="buttons">
-            <button class="button is-warning" onclick="location.href = '/question'">텀블러 유형 테스트 시작하기</button>
+            <button class="button is-large is-fullwidth" onclick="location.href = '/question'">텀블러 유형 테스트 시작하기</button>
         </div>
     </div>
 </section>
