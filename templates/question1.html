@@ -7,20 +7,20 @@
     <title>텀블러 유형 테스트 | 나에게 꼭 맞는 텀블러 유형은?</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <style>
-        * {
-            background-color: #f4e8cd;
-        }
 
         .section {
             width: 100vw;
             height: 100vh;
             padding: 70px 0px;
             margin: auto;
+            position: absolute;
         }
 
         .container {
             text-align: center;
             width: 500px;
+            position: relative;
+
         }
 
         #q-order {
@@ -28,9 +28,13 @@
             margin: 0px 0px 0px 400px;
             color: black;
             text-align: center;
-            background-color: #4edbbf;
+            background-color: #FEBD67;
             border-radius: 30px;
             color: white;
+        }
+
+        #question-number {
+            margin: 30px 0px 0px 0px;
         }
 
         .question {
@@ -39,15 +43,20 @@
         }
 
         .title {
-            margin: 50px 0px 15px 0px;
+            margin: 10px 0px 30px 0px;;
+            color: #24272c;
         }
 
         .button {
             margin: 25px auto;
+            border: 0px;
+            color: #24272c;
+            background-color: #FEBD67;
         }
 
         .button:hover {
-            background-color: #4edbbf;
+            background-color: #eaf0ec;
+            color: #72a065;
         }
 
         @media screen and (max-width: 760px) {
@@ -110,7 +119,7 @@
             <p id="question-number" class="q-number" style="font-size: xx-large">
                 Q.1
             </p>
-            <h1 id="question-line" class="title">
+            <h1 id="question-line" class="title is-2">
                 선호하는 여행지는?
             </h1>
         </div>
