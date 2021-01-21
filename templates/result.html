@@ -1,115 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-        <script>
-            // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
-            Kakao.init('292826bba6f4fb1d3cdf3763f0077b69');
-            // SDK 초기화 여부를 판단합니다.
-            console.log(Kakao.isInitialized());
-        </script>
-        <title>텀블러 유형 테스트 | 나에게 꼭 맞는 텀블러 유형은?</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-        <style>
-            .section {
-                width: 100vw;
-                height: 100vh;
-                padding: 70px 0px;
-                margin: auto;
-            }
-
-            .container {
-                text-align: center;
-                width: 500px;
-            }
-
-            .result-line {
-                margin: 15px 0px 15px 0px;
-                text-align: center;
-            }
-
-            .desc_card {
-                width: 500px;
-                height: 200px;
-                margin: auto;
-                text-align: left;
-                padding: 15px;
-                box-shadow: 0 7px 30px -10px rgba(150, 170, 180, 0.5);
-                border-radius: 10px;
-                opacity: 90%;
-                margin-bottom: 30px;
-            }
-
-            .rec-tumblr {
-                width: 500px;
-                margin: auto;
-                margin-bottom: 25px;
-            }
-
-            .share-list {
-                width: 500px;
-                margin: auto;
-            }
-
-            .share-list-btn {
-                border: 0;
-                background-color: white;
-                width: 50px;
-                height: 50px;
-            }
-
-            .button {
-                margin: 25px auto;
-            }
-
-            .button:hover {
-                background-color: #4edbbf;
-            }
-
-            #prod_list {
-                display: none;
-                width: 500px;
-                margin: 25px auto;
-            }
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script>
+        // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+        Kakao.init('292826bba6f4fb1d3cdf3763f0077b69');
+        // SDK 초기화 여부를 판단합니다.
+        console.log(Kakao.isInitialized());
+    </script>
+    <title>텀블러 유형 테스트 | 나에게 꼭 맞는 텀블러 유형은?</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <style>
 
 
-        </style>
+        .section {
+            width: 600px;
+            height: 100vh;
+            margin: auto;
+            padding: 0px;
 
-        <script>
-            $(document).ready(function () {
-                Kakao.Link.createScrapButton({
-                    container: '#kakao-link-btn',
-                    requestUrl: location.href
-                });
+        }
+        .result-img {
+            background-color: #FEBD67;
+            width: 600px;
+            height: 500px;
+            border-radius: 0 0 50px 50px;
+            z-index: 1;
+            margin: auto;
+
+
+            /*position: relative;*/
+            /*top: 300px;*/
+            /*left: 150px;*/
+            position: absolute;
+        }
+        .container {
+            text-align: center;
+            width: 500px;
+            position: relative;
+            top: 350px;
+            z-index: 2;
+
+        }
+
+        .result-line {
+            margin: 15px 0px 15px 0px;
+            text-align: center;
+        }
+
+        .desc_card {
+            width: 500px;
+            height: 700px;
+            margin: auto;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 7px 30px -10px rgba(150, 170, 180, 0.5);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            background-color: white;
+
+        }
+
+        .rec-tumblr {
+            width: 400px;
+            margin: auto;
+            margin-bottom: 25px;
+        }
+
+        .share-list {
+            width: 500px;
+            margin: auto;
+        }
+
+        .share-list-btn {
+            border: 0;
+            background-color: white;
+            width: 50px;
+            height: 50px;
+        }
+
+        .button {
+            margin: 25px auto;
+        }
+
+        .button:hover {
+            background-color: #4edbbf;
+        }
+
+        #prod_list {
+            display: none;
+            width: 500px;
+            margin: 25px auto;
+        }
+
+
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            Kakao.Link.createScrapButton({
+                container: '#kakao-link-btn',
+                requestUrl: location.href
             });
+        });
 
-            function showProdList() {
-                $("#prod_list").show();
-                prodInfo();
-            }
+        function showProdList() {
+            $("#prod_list").show();
+            prodInfo();
+        }
 
-            function prodInfo() {
-                $('#prod_list_card').empty()
-                $.ajax({
-                    type: "GET",
-                    url: "/prod_info",
-                    data: {},
-                    success: function (response) {
-                        if (response["result"] == "success") {
-                            let prodInfos = response["prod_info"];
+        function prodInfo() {
+            $('#prod_list_card').empty()
+            $.ajax({
+                type: "GET",
+                url: "/prod_info",
+                data: {},
+                success: function (response) {
+                    if (response["result"] == "success") {
+                        let prodInfos = response["prod_info"];
 
-                            for (let i = 0; i < prodInfos.length; i++) {
-                                let prod_info = prodInfos[i]
+                        for (let i = 0; i < prodInfos.length; i++) {
+                            let prod_info = prodInfos[i]
 
-                                let url = prod_info['url']
-                                let name = prod_info['name']
-                                let img = prod_info['img']
-                                let price = prod_info['price']
+                            let url = prod_info['url']
+                            let name = prod_info['name']
+                            let img = prod_info['img']
+                            let price = prod_info['price']
 
-                                let tempHtml = `<div class="column is-4">
+                            let tempHtml = `<div class="column is-4">
                                                 <div class="card">
                                                     <div class="card-image">
                                                         <figure class="image is-4by3">
@@ -128,142 +149,146 @@
                                                     </div>
                                                 </div>
                                             </div>`;
-                                $("#prod_list_card").append(tempHtml);
-                            }
+                            $("#prod_list_card").append(tempHtml);
                         }
                     }
-                });
-            }
-        </script>
-    </head>
-    <body>
-        <section class="section">
-            <div class="container">
-                <div class="result">
-                    <p class="subtitle">{{ result[0] }}</p>
+                }
+            });
+        }
+    </script>
+</head>
+<body>
 
-                    <h1 class="title" class="result-line">
-                        {{ result[1] }}
-                    </h1>
+<section class="section">
+    <div class="result-img">
+    </div>
+    <div class="container">
+        <div class="result">
 
-                    <div>
-                        <div class="desc_card">
-                            <p><strong></strong></p>
-                            <p class="desc">
-                            </p>
-                        </div>
-                        <div class="rec-tumblr">
-                            <div class="columns is-mobile">
-                                <div class="column is half">
-                                    <div class="card">
-                                        <div class="card-image">
-                                            <figure class="image is-140x140">
-                                                <img src="http://www.citycreek.co.kr/shopimages/20200909103226_491_0.jpg">
-                                            </figure>
-                                        </div>
-                                        <div class="card-content">
-                                            <div class="prod_info">
-                                                <p class="title is-4">Stanley</p>
-                                                <p class="subtitle">스탠리</p>
-                                            </div>
-                                        </div>
-                                    </div>
+
+            <div>
+                <div class="desc_card"><p class="subtitle">{{ result[0] }}</p>
+
+            <h1 class="title" class="result-line">
+                {{ result[1] }}
+            </h1>
+                    <p><strong>gfgfgfgffgfg</strong></p>
+                    <p class="desc"> fgfgfgfgfgfgfgfgfggf
+                    </p>
+                    <div class="rec-tumblr">
+                    <div class="columns is-mobile">
+                        <div class="column is half">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image is-140x140">
+                                        <img src="http://www.citycreek.co.kr/shopimages/20200909103226_491_0.jpg">
+                                    </figure>
                                 </div>
-                                <div class="column is half">
-                                    <div class="card">
-                                        <div class="card-image">
-                                            <figure class="image is-140x140">
-                                                <img src="https://image.istarbucks.co.kr/upload/store/skuimg/2020/04/[9300000002414]_20200414150926364.jpg">
-                                            </figure>
-                                        </div>
-                                        <div class="card-content">
-                                            <div class="prod_info">
-                                                <p class="title is-4">Starbucks</p>
-                                                <p class="subtitle">스타벅스</p>
-                                            </div>
-                                        </div>
+                                <div class="card-content">
+                                    <div class="prod_info">
+                                        <p class="title is-4">Stanley</p>
+                                        <p class="subtitle">스탠리</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="share">
-                            <h4 class="subtitle is-4">
-                                공유하기
-                            </h4>
-                            <div class="share-list">
-                                <button class="share-list-btn" id="kakao-link-btn">
-                                    <img src="/static/image/kakao.png">
-                                </button>
-                                <button class="share-list-btn">
-                                    <img src="/static/image/coffee.png">
-                                </button>
-                                <button class="share-list-btn">
-                                    <img src="/static/image/instagram.png">
-                                </button>
+                        <div class="column is half">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image is-140x140">
+                                        <img src="https://image.istarbucks.co.kr/upload/store/skuimg/2020/04/[9300000002414]_20200414150926364.jpg">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="prod_info">
+                                        <p class="title is-4">Starbucks</p>
+                                        <p class="subtitle">스타벅스</p>
+                                    </div>
+                                </div>
                             </div>
-
                         </div>
-                        <div class="buttons" onclick="showProdList()">
-                            <button class="button is large is-fullwidth">다른 텀블러도 궁금해!</button>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="share">
+                    <h4 class="subtitle is-4">
+                        공유하기
+                    </h4>
+                    <div class="share-list">
+                        <button class="share-list-btn" id="kakao-link-btn">
+                            <img src="/static/image/kakao.png">
+                        </button>
+                        <button class="share-list-btn">
+                            <img src="/static/image/coffee.png">
+                        </button>
+                        <button class="share-list-btn">
+                            <img src="/static/image/instagram.png">
+                        </button>
+                    </div>
+
+                </div>
+                <div class="buttons" onclick="showProdList()">
+                    <button class="button is large is-fullwidth">다른 텀블러도 궁금해!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="prod_list">
+        <div class="columns is-multiline is mobile" id="prod_list_card">
+            <div class="column is-4">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="http://img.danawa.com/prod_img/500000/071/006/img/8006071_1.jpg?shrink=160:160&_v=20200724160847"
+                                 alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="prod_info">
+                            <p class="title is-4">상품명</p>
+                            <p class="subtitle is-6">가격</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="prod_list">
-                <div class="columns is-multiline is mobile" id="prod_list_card">
-                    <div class="column is-4">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image is-4by3">
-                                    <img src="http://img.danawa.com/prod_img/500000/071/006/img/8006071_1.jpg?shrink=160:160&_v=20200724160847"
-                                         alt="Placeholder image">
-                                </figure>
-                            </div>
-                            <div class="card-content">
-                                <div class="prod_info">
-                                    <p class="title is-4">상품명</p>
-                                    <p class="subtitle is-6">가격</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="column is-4">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image is-4by3">
-                                    <img src="https://bulma.io/images/placeholders/1280x960.png"
-                                         alt="Placeholder image">
-                                </figure>
-                            </div>
-                            <div class="card-content">
-                                <div class="prod_info">
-                                    <p class="title is-4">상품명</p>
-                                    <p class="subtitle is-6">가격</p>
-                                </div>
-                            </div>
-                        </div>
+            <div class="column is-4">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="https://bulma.io/images/placeholders/1280x960.png"
+                                 alt="Placeholder image">
+                        </figure>
                     </div>
-
-                    <div class="column is-4">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image is-4by3">
-                                    <img src="https://bulma.io/images/placeholders/1280x960.png"
-                                         alt="Placeholder image">
-                                </figure>
-                            </div>
-                            <div class="card-content">
-                                <div class="prod_info">
-                                    <p class="title is-4">상품명</p>
-                                    <p class="subtitle is-6">가격</p>
-                                    <p class="star">평점</p>
-                                </div>
-                            </div>
+                    <div class="card-content">
+                        <div class="prod_info">
+                            <p class="title is-4">상품명</p>
+                            <p class="subtitle is-6">가격</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </body>
+
+            <div class="column is-4">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="https://bulma.io/images/placeholders/1280x960.png"
+                                 alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="prod_info">
+                            <p class="title is-4">상품명</p>
+                            <p class="subtitle is-6">가격</p>
+                            <p class="star">평점</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
 </html>
