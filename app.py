@@ -46,7 +46,7 @@ def calc_result(answers):
 
 @app.route('/qnas', methods=['GET'])
 def show_qna():
-    qnas = list(db.qna.find({}, {'_id': False}))
+    qnas = qna_data
     return jsonify({'result': 'success', 'qna': qnas})
 
 @app.route('/prod_info', methods=['GET'])
