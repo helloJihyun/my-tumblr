@@ -23,6 +23,7 @@
             padding: 0px;
 
         }
+
         .result-img {
             background-color: #FEBD67;
             width: 600px;
@@ -37,6 +38,7 @@
             /*left: 150px;*/
             position: absolute;
         }
+
         .container {
             text-align: center;
             width: 500px;
@@ -84,16 +86,23 @@
 
         .button {
             margin: 25px auto;
+            border: 0px;
+            color: #24272c;
+            background-color: #FEBD67;
         }
 
+
         .button:hover {
-            background-color: #4edbbf;
+            background-color: #eaf0ec;
+            color: #72a065;
         }
 
         #prod_list {
             display: none;
             width: 500px;
             margin: 25px auto;
+            position: relative;
+            top: 400px;
         }
 
 
@@ -169,45 +178,45 @@
             <div>
                 <div class="desc_card"><p class="subtitle">{{ result[0] }}</p>
 
-            <h1 class="title" class="result-line">
-                {{ result[1] }}
-            </h1>
+                    <h1 class="title" class="result-line">
+                        {{ result[1] }}
+                    </h1>
                     <p><strong>gfgfgfgffgfg</strong></p>
                     <p class="desc"> fgfgfgfgfgfgfgfgfggf
                     </p>
                     <div class="rec-tumblr">
-                    <div class="columns is-mobile">
-                        <div class="column is half">
-                            <div class="card">
-                                <div class="card-image">
-                                    <figure class="image is-140x140">
-                                        <img src="http://www.citycreek.co.kr/shopimages/20200909103226_491_0.jpg">
-                                    </figure>
+                        <div class="columns is-mobile">
+                            <div class="column is half">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <figure class="image is-140x140">
+                                            <img src="http://www.citycreek.co.kr/shopimages/20200909103226_491_0.jpg">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="prod_info">
+                                            <p class="title is-4">Stanley</p>
+                                            <p class="subtitle">스탠리</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-content">
-                                    <div class="prod_info">
-                                        <p class="title is-4">Stanley</p>
-                                        <p class="subtitle">스탠리</p>
+                            </div>
+                            <div class="column is half">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <figure class="image is-140x140">
+                                            <img src="https://image.istarbucks.co.kr/upload/store/skuimg/2020/04/[9300000002414]_20200414150926364.jpg">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="prod_info">
+                                            <p class="title is-4">Starbucks</p>
+                                            <p class="subtitle">스타벅스</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="column is half">
-                            <div class="card">
-                                <div class="card-image">
-                                    <figure class="image is-140x140">
-                                        <img src="https://image.istarbucks.co.kr/upload/store/skuimg/2020/04/[9300000002414]_20200414150926364.jpg">
-                                    </figure>
-                                </div>
-                                <div class="card-content">
-                                    <div class="prod_info">
-                                        <p class="title is-4">Starbucks</p>
-                                        <p class="subtitle">스타벅스</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
 
@@ -229,7 +238,7 @@
 
                 </div>
                 <div class="buttons" onclick="showProdList()">
-                    <button class="button is large is-fullwidth">다른 텀블러도 궁금해!</button>
+                    <button class="button is-large is-fullwidth">다른 텀블러도 궁금해!</button>
                 </div>
             </div>
         </div>
