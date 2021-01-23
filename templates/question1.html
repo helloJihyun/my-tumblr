@@ -4,9 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
     <title>텀블러 유형 테스트 | 나에게 꼭 맞는 텀블러 유형은?</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <style>
+
+        * {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
 
         .section {
             width: 100vw;
@@ -18,23 +25,31 @@
 
         .container {
             text-align: center;
-            width: 500px;
+            width: 495px;
             position: relative;
 
         }
 
+        .q-order {
+            display: flex;
+            justify-content: flex-end;
+        }
+
         #q-order {
+            position: relative;
             width: 80px;
-            margin: 0px 0px 0px 400px;
-            color: black;
+            font-weight: 300;
+
             text-align: center;
             background-color: #FEBD67;
             border-radius: 30px;
             color: white;
         }
 
-        #question-number {
+        .q-number {
             margin: 30px 0px 0px 0px;
+            font-size: 24px;
+            font-weight: 300;
         }
 
         .question {
@@ -42,9 +57,10 @@
             text-align: left;
         }
 
-        .title {
+        .question-line {
             margin: 10px 0px 30px 0px;;
             color: #24272c;
+            font-size: 36px;
         }
 
         .button {
@@ -60,6 +76,30 @@
         }
 
         @media screen and (max-width: 760px) {
+            .section {
+
+                height: 70vh;
+
+            }
+
+            .container {
+                width: 100vw;
+                padding-right: 10px;
+                padding-left: 10px;
+            }
+
+            .question {
+                width: 100vw;
+            }
+
+            .question-line {
+
+                font-size: 32px;
+            }
+
+            .buttons .button {
+                font-size: 20px;
+            }
 
         }
 
@@ -113,15 +153,15 @@
 <section class="section">
     <div class="container">
         <div class="question">
-            <div>
+            <div class="q-order">
                 <p id="q-order">1/12</p>
             </div>
-            <p id="question-number" class="q-number" style="font-size: xx-large">
+            <p class="q-number">
                 Q.1
             </p>
-            <h1 id="question-line" class="title is-2">
+            <p class="question-line" id="question-line">
                 선호하는 여행지는?
-            </h1>
+            </p>
         </div>
         <div class="buttons" id="answers">
             <button class="button is-large is-fullwidth" onclick="choose();">구름 한 점 없는 해수욕장</button>
