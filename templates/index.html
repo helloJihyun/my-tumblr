@@ -4,8 +4,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>텀블러 유형 테스트 | 나에게 꼭 맞는 텀블러 유형은?</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">-->
     <style>
+        @font-face {
+            font-family: 'KCC-eunyoung';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KCC-eunyoung-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'NEXON Lv1 Gothic OTF';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'NEXON Lv1 Gothic OTF Light';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Light.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
 
 
         .section {
@@ -21,27 +41,44 @@
         .container {
             text-align: left;
             width: 500px;
-            height: 700px;
+            height: 100vh;
             margin: auto;
+            padding: 70px 0px 0px 0px;
+            position: absolute;
         }
 
         .title-box {
-            font-size: 2.5rem;
-            padding: 30px 0px 0px 15px;
             width: 450px;
+
         }
 
-        #desc {
-            padding-top: 15px;
+        .title-line {
+            font-size: 44px;
+            margin: 5px 0px 10px 0px;
+            font-family: 'NEXON Lv1 Gothic OTF';
+        }
+
+        .subtitle {
+            margin: 0px;
+            font-size: 28px;
+            padding: 0px 0px 0px 5px;
+            font-family: 'KCC-eunyoung';
+            font-weight: 200;
+        }
+
+        .desc {
+            margin: 0px;
+            font-size: 18px;
+            padding: 0px 0px 0px 5px;
+            font-family: 'NEXON Lv1 Gothic OTF Light';
+            line-height: 1.3
         }
 
         .start {
-            position: absolute;
-            top: 630px;
-            left: 280px;
-            animation: blink 1s step-end infinite;
+            position: relative;
+            top: 460px;
+            left: 290px;
         }
-
 
         .button {
             border-radius: 75px;
@@ -49,6 +86,8 @@
             height: 150px;
             border: 0px;
             background-color: #FEBD67;
+            font-size:25px;
+            font-family:'NEXON Lv1 Gothic OTF';
         }
 
         h3 {
@@ -69,7 +108,7 @@
                 width: 100vw;
                 margin: auto;
                 padding: 0px;
-                background-size: 115vw 100vh;
+                background-size: 100vw 85vh;
                 background-position: center;
                 background-repeat: no-repeat;
                 margin: auto;
@@ -84,6 +123,20 @@
                 height: 750px;
             }
 
+            .title-line {
+                font-size: 38px;
+            }
+
+            .subtitle {
+                margin: 0px;
+                font-size: 22px;
+            }
+
+            .desc {
+                margin: 0px;
+                font-size: 15px;
+            }
+
             .button {
                 border-radius: 75px;
                 width: 130px;
@@ -94,14 +147,14 @@
 
             .start {
                 position: absolute;
-                top: 650px;
+                top: 590px;
                 left: 220px;
                 animation: blink 1s step-end infinite;
             }
 
             .title-box {
                 font-size: 2.5rem;
-                padding: 15px 0px 0px 15px;
+                padding: 30px 0px 0px 15px;
                 width: 350px;
             }
         }
@@ -113,19 +166,19 @@
 <section class="section">
     <div class="container">
         <div class="title-box">
-            <p class="subtitle" style="color:#72a065">
+            <p class="subtitle" style="color:#72a065;">
                 My Tumbler Type Test
             </p>
-            <h2 class="title is-2">
-                <strong style="color: #FEBD67">텀블러</strong> 유형 검사
-            </h2>
-            <p class="subtitle" id="desc" style="color: #24272c">
+            <h1 class="title-line">
+                <span style="color: #FEBD67;">텀블러</span> 유형 검사
+            </h1>
+            <p class="desc" style="color: #24272c">
                 당신을 꼭 빼닮은 텀블러를 알려드립니다.<br>
                 환경보호 실천의 첫 발걸음, 텀블러와 함께!
             </p>
         </div>
         <div class="start">
-            <button class="button" onclick="location.href = '/question'"><h3 class="title is-3">START</h3></button>
+            <button class="button" onclick="location.href = '/question'"><p>START</p></button>
         </div>
 
     </div>
