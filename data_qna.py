@@ -26,7 +26,7 @@ qna_data.append(
      })
     # 4번 Q&A
 qna_data.append(
-    {'q': '다 쓴 플라스틱 빨대를 버릴 땐',
+    {'q': '플라스틱 빨대를 버릴 땐',
      'a': [
          ('일반 쓰레기통에 버린다.', {'type1' :0, 'type2' :0, 'type3' :0, 'type4' :0, 'type5' :0, 'type6' :0, 'type7' :10, 'type8' :2}),
          ('깨끗하게 씻어 재활용 쓰레기통에 버린다.', {'type1' :0, 'type2' :0, 'type3' :0, 'type4' :0, 'type5' :0, 'type6' :0, 'type7' :0, 'type8' :0}),
@@ -82,7 +82,7 @@ qna_data.append(
      })
     # 11번 Q&A
 qna_data.append(
-    {'q': '심각한 환경오염 영상을 본 다음날',
+    {'q': '심각한 환경오염 영상을 본 후',
      'a': [
          ('일회용품을 평소와 같이 사용한다.', {'type1' :0, 'type2' :0, 'type3' :0, 'type4' :0, 'type5' :0, 'type6' :0, 'type7' :3, 'type8' :0}),
          ('최대한 일회용품 사용을 줄이려고 노력한다.', {'type1' :0, 'type2' :0, 'type3' :0, 'type4' :0, 'type5' :0, 'type6' :0, 'type7' :0, 'type8' :0}),

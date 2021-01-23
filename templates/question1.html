@@ -4,35 +4,69 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
-          rel="stylesheet">
     <title>텀블러 유형 테스트 | 나에게 꼭 맞는 텀블러 유형은?</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <style>
 
-        * {
-            font-family: 'Noto Sans KR', sans-serif;
+        @font-face {
+            font-family: 'NEXON Lv1 Gothic OTF';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'NEXON Lv1 Gothic OTF Light';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Light.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
         }
 
         .section {
             width: 100vw;
             height: 100vh;
-            padding: 70px 0px;
+            background-image: url("../static/image/question_background.png");
+            background-size: 495px 880px;
+            background-position: center;
+            background-repeat: no-repeat;
+            /*padding: 70px 0px;*/
             margin: auto;
-            position: absolute;
+            /*position: absolute;*/
         }
-
+        /* .section {*/
+        /*    width: 495px;*/
+        /*    height: 880px;*/
+        /*    background-image: url("../static/image/index_background_2.png");*/
+        /*    background-size: 495px 880px;*/
+        /*    background-position: center;*/
+        /*    background-repeat: no-repeat;*/
+        /*    margin: auto;*/
+        /*}*/
         .container {
             text-align: center;
             width: 495px;
+            width: 500px;
+            height: 100vh;
+            margin: auto;
+            padding: 70px 0px 0px 0px;
             position: relative;
 
         }
 
+
+        /*.container {*/
+        /*    text-align: left;*/
+        /*    width: 500px;*/
+        /*    height: 100vh;*/
+        /*    margin: auto;*/
+        /*    padding: 70px 0px 0px 0px;*/
+        /*    position: absolute;*/
+        /*}*/
+
         .q-order {
             display: flex;
             justify-content: flex-end;
+            font-family: 'NEXON Lv1 Gothic OTF Light';
         }
 
         #q-order {
@@ -50,6 +84,7 @@
             margin: 30px 0px 0px 0px;
             font-size: 24px;
             font-weight: 300;
+            font-family: 'NEXON Lv1 Gothic OTF Light';
         }
 
         .question {
@@ -61,6 +96,7 @@
             margin: 10px 0px 30px 0px;;
             color: #24272c;
             font-size: 36px;
+            font-family: 'NEXON Lv1 Gothic OTF';
         }
 
         .button {
@@ -68,6 +104,7 @@
             border: 0px;
             color: #24272c;
             background-color: #FEBD67;
+            font-family: 'NEXON Lv1 Gothic OTF';
         }
 
         .button:hover {
@@ -78,27 +115,38 @@
         @media screen and (max-width: 760px) {
             .section {
 
-                height: 70vh;
+                height: 100vh;
+                width: 100vw;
+                margin: auto;
+                padding: 0px;
+                background-size: 100vw 85vh;
+                background-position: center;
+                background-repeat: no-repeat;
+                margin: auto;
 
             }
+
 
             .container {
+                flex-grow: 1;
+                margin: auto;
                 width: 100vw;
+                height: 750px;*/
                 padding-right: 10px;
                 padding-left: 10px;
+                padding: 70px 10px 0px 10px;
             }
-
             .question {
                 width: 100vw;
             }
 
             .question-line {
 
-                font-size: 32px;
+                font-size: 28px;
             }
 
             .buttons .button {
-                font-size: 20px;
+                font-size: 15px;
             }
 
         }
@@ -125,7 +173,7 @@
 
         function showQuestionAt(index) {
             let qna = qnas[index];
-            $('#question-number').text(`Q. ${index + 1}`);
+            $('#q-number').text(`Q. ${index + 1}`);
             $('#q-order').text(`${index + 1} / 12`);
             $('#question-line').text(qna['q']);
             $('#answers').empty();
@@ -156,7 +204,7 @@
             <div class="q-order">
                 <p id="q-order">1/12</p>
             </div>
-            <p class="q-number">
+            <p class="q-number" id="q-number">
                 Q.1
             </p>
             <p class="question-line" id="question-line">
