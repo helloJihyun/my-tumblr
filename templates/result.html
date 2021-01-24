@@ -14,7 +14,28 @@
     <title>텀블러 유형 테스트 | 나에게 꼭 맞는 텀블러 유형은?</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <style>
+        * {
+            color: #24272c;
+        }
+        @font-face {
+            font-family: 'KCC-eunyoung';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KCC-eunyoung-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'NEXON Lv1 Gothic OTF';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
 
+        @font-face {
+            font-family: 'NEXON Lv1 Gothic OTF Light';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Light.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
 
         .section {
             width: 495px;
@@ -49,11 +70,11 @@
         }
 
         .desc_card {
-            width: 500px;
+            width: 450px;
             height: 700px;
             margin: auto;
             text-align: center;
-            padding: 15px;
+            padding: 20px 40px;
             box-shadow: 0 7px 30px -10px rgba(150, 170, 180, 0.5);
             border-radius: 10px;
             margin-bottom: 30px;
@@ -62,10 +83,11 @@
         }
 
         .rec-tumblr {
-            width: 400px;
-            margin: auto;
-            margin-bottom: 25px;
+            width: 300px;
+            margin: 10px auto;
+
         }
+
 
         .share-list {
             width: 500px;
@@ -171,42 +193,29 @@
 
 
             <div>
-                <div class="desc_card"><p class="subtitle">{{ result[0] }}</p>
+                <div class="desc_card"><p class="subtitle is-4" style="color:#72a065; font-family: 'KCC-eunyoung';">{{ result[0]
+                    }}</p>
 
-                    <h1 class="title" class="result-line">
+                    <h3 class="title is-3" class="result-line" style="font-family: 'NEXON Lv1 Gothic OTF Light';">
                         {{ result[1] }}
-                    </h1>
-                    <p><strong>gfgfgfgffgfg</strong></p>
-                    <p class="desc"> fgfgfgfgfgfgfgfgfggf
+                    </h3>
+                    <p style="font-family: 'NEXON Lv1 Gothic OTF Light';">{{ result[2]}}</p>
+                    <p style="padding: 20px ;font-size:20px; font-family: 'NEXON Lv1 Gothic OTF';" > {{ result[3]}}
                     </p>
                     <div class="rec-tumblr">
                         <div class="columns is-mobile">
-                            <div class="column is half">
+                            <div class="column">
                                 <div class="card">
                                     <div class="card-image">
                                         <figure class="image is-140x140">
-                                            <img src="http://www.citycreek.co.kr/shopimages/20200909103226_491_0.jpg">
+                                            <img src="{{result[7]}}">
                                         </figure>
                                     </div>
                                     <div class="card-content">
                                         <div class="prod_info">
-                                            <p class="title is-4">Stanley</p>
-                                            <p class="subtitle">스탠리</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="column is half">
-                                <div class="card">
-                                    <div class="card-image">
-                                        <figure class="image is-140x140">
-                                            <img src="https://image.istarbucks.co.kr/upload/store/skuimg/2020/04/[9300000002414]_20200414150926364.jpg">
-                                        </figure>
-                                    </div>
-                                    <div class="card-content">
-                                        <div class="prod_info">
-                                            <p class="title is-4">Starbucks</p>
-                                            <p class="subtitle">스타벅스</p>
+                                            <p style="font-size:23px; font-family: 'KCC-eunyoung'">'{{ result[4]}}'</p>
+                                            <p STYLE="font-family: 'NEXON Lv1 Gothic OTF Light'">{{result[5]}}</p>
+                                            <p STYLE="font-size: 23px; font-family: 'NEXON Lv1 Gothic OTF'">{{result[6]}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -233,7 +242,7 @@
 
                 </div>
                 <div class="buttons" onclick="showProdList()">
-                    <button class="button is-large is-fullwidth">다른 텀블러도 궁금해!</button>
+                    <button class="button is-large is-fullwidth">최저가 텀블러 구경하기</button>
                 </div>
             </div>
         </div>
